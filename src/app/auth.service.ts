@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 
 export class AuthService {
 
-   authenticated = false;
+   authenticated = true;
 
 isLoggedIn() {
 
@@ -14,7 +14,7 @@ isLoggedIn() {
 
         setTimeout(() => {
                 res(this.authenticated)
-        }, 1000);
+        }, 100);
 
     })
 

@@ -1,32 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CarPageComponent } from './practice-routing/car-page/car-page.component';
-import { HomePageComponent } from './practice-routing/home-page/home-page.component';
-import { CarDetailComponent } from './practice-routing/car-page/car-detail/car-detail.component';
-import { NotFoundComponent } from './practice-routing/not-found/not-found.component';
-import { AuthGuard } from './auth-guard.service'
+import { Routes, RouterModule ,PreloadAllModules} from '@angular/router';
+import { HomePageComponent } from './practice-module/home-page/home-page.component';
+
+
 
 const routes: Routes = [
   // {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '', component: HomePageComponent , pathMatch:'full'},
+ {path: 'cars',
+  loadChildren:'./practice-module/car-page/cars.module#CarsModule',
+  canLoad:[]
+}
 
-  {path: 'cars', component: CarPageComponent , children:[
-    {
-      path: ':id',
-      component: CarDetailComponent,
-      
-    },
-  ] , canActivate : [AuthGuard],canActivateChild:[AuthGuard]
-},
-{ path: 'not-found' , component: NotFoundComponent , data:{message : 'PagenotFound , data from routes[]'}},
-{ path: '**' , redirectTo: 'not-found'}
-  
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
