@@ -1,0 +1,53 @@
+<div class="col-xs col-xs-offset-2">
+        <form [formGroup]='myForm' (ngSubmit)='onSubmit()'>
+            <div formGroupName='userData'>
+                <div class="form-group"
+                [ngClass]='{"has-error" : myForm.get("userData.email").value === "" && myForm.get("userData.email").touched }'>
+                    <label> Email</label>
+                    <input type="text" class="form-control"
+                    [formControlName]="'email'">
+                    <span *ngIf='!myForm.get("userData.email").valid && myForm.get("userData.email").touched'>
+                        некоректный емейл</span>
+                        <span *ngIf='myForm.get("userData.email").errors && myForm.get("userData.email").errors["emailIsForbbiden"]'>
+                            такой емейл уже есть
+                        </span>
+                </div>
+        
+                <div class="form-group"
+                [ngClass]='{"has-error" : myForm.get("userData.password").value === "" && myForm.get("userData.password").touched }'>
+                    <label>Пароль</label>
+                    <input formControlName="password"
+                    type="password" class="form-control">
+                    <span *ngIf='myForm.get("userData.password").touched'>
+
+                        <span *ngIf='myForm.get("userData.password").errors && myForm.get("userData.password").errors["lengthError"]'>
+                            минимально количество символов = 5 
+                        </span>
+                        <span *ngIf='myForm.get("userData.password").errors && myForm.get("userData.password").errors["required"]'>
+                                пароль не должен быть пустым
+                        </span>
+                           
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label> ВЫберите страну</label>
+                <select formControlName='country' class="form-control">
+                    <option value="ru">Раисия</option>    
+                    <option value="bu">Белоруссия</option>  
+                    <option value="ua">Украина</option>  
+                </select>
+            </div>      
+            
+            <div class="radio" *ngFor='let ans of answers'>
+                <label >
+                    <input type="radio" [formControlName]="'answer'" [value]='ans.type'>
+                    {{ans.text}}
+                </label>
+            </div>
+    
+            <button [disabled]='!myForm.valid' class="btn btn-success" type="submit">
+                сохранить
+            </button>
+        </form>
+    </div>

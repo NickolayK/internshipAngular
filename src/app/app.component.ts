@@ -7,25 +7,54 @@ import { BehaviorSubject } from 'rxjs'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'internship';
-  config = {
-    position: 'top'
-  };
 
-  items = [];
-  items$ = new BehaviorSubject(this.items);
 
-  todos = [{ title: 'One' }, { title: 'Two' }];
+  headerText = 'создание своей директивы'
 
-  add() {
-    this.todos = [...this.todos, { title: 'Three' }];
+  items = [ 1, 2 ,3 , 4 ,5 ];
+  current = 1;
+ 
+  onClick(item:number){
+    this.current = item;
   }
-  onClick() {
-    this.config = {
-      position: 'bottom'
-    }
+
+  cars = [
+    {
+      name: 'Mazda',
+      desc : 'WFM 1'
+    },
+    {
+      name: 'BmW',
+      desc : 'WFM 2'
+    },
+    {
+      name: 'Subaru',
+      desc : 'WFM 3'
+    },
+    {
+      name: 'Lada',
+      desc : 'WFM 4'
+    }   
+
+  ]
+  filter:string;
+//variable for pipe's lessons
+
+name ='WebForMyself';
+pi = Math.PI;
+money = 350 ;
+date = new Date();
+amount = 0.45;
+object = {
+  foo : 'bar',
+  baz: 'qux',
+  nested: {
+      xyz : 3,
+      numbers : [1 ,2 ,3]
   }
-  onSubmit(){
-    console.log('submit')
-  }
+}
+addCar(){
+  this.cars.push({name: 'New car', desc : 'Fww'});
+}
+
 }

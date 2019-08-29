@@ -1,0 +1,29 @@
+<p> форма добавления машин</p>
+<hr>
+<app-add-car (onAddCar)='updateCarList($event)'></app-add-car>
+
+
+
+<!-- <input class="form-control" (keyup.enter)="onKeyUp($event)">
+
+<input class="form-control" #myInput (input)="onKeyUpWithReference(myInput)">
+
+<input class="form-control" [(ngModel)]="inputText">
+
+
+<p> {{inputText}}</p> -->
+<hr>
+<button (click)='change()'> Изменить имя машины </button>
+<button (click)='clear()'> Clear </button>
+<hr>
+<div class="list-group">
+        <app-car [car]='car' [name]='car.name'
+                 class="list-group-item"
+                 *ngFor="let  car of cars">
+
+            <h4 class="list-group-item-heading" #heading> Название :   {{ car.name}} </h4>
+            <p class="list-group-item-text"> Год:{{ car.year}}</p>
+
+        </app-car>
+</div>
+

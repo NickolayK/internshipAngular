@@ -1,12 +1,93 @@
 
-<router-outlet></router-outlet>
+
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-cars>
 
-      </app-cars>
+      <!-- work with directive -->
+        <!-- <h4 [appBackGround]="'brown'">{{headerText}}</h4> -->
+      <!-- work with directive -->
+
+      <!-- input, output , eventemmiter -->
+           <!-- <app-cars> </app-cars> -->
+      <!-- input, output , eventemmiter -->
+
+      <!-- ng-switch -->
+            <!-- <ul class="list-group">
+              <li class="list-group-item" 
+                  *ngFor='let item of items' 
+                  (click)='onClick(item)'>
+                {{item}}
+              </li>
+            </ul>
+
+            <div [ngSwitch]='current'>
+              <p *ngSwitchCase= '1'> 1</p>
+              <p *ngSwitchCase= '2'> 2</p>
+              <p *ngSwitchCase= '3'> 3</p>
+              <p *ngSwitchDefault> default </p>
+            </div> -->
+      <!-- ng-switch -->
+
+      <!-- using pipe -->
+              <!-- <h2> {{ name }}</h2>
+              <h2> {{ name | lowercase  }}</h2>
+              <h2> {{ name | uppercase  }}</h2>
+              <h2> {{ name | slice : 0 : 3  | uppercase }}</h2>
+              <hr>
+
+              <h2> {{ pi }}</h2>
+              <h2> {{ pi | number}}</h2>
+              <h2> {{ pi  | number : '1.3-4'  }}</h2>
+              <h2> {{ pi | number : '2.2-2' }}</h2>
+
+              <h2> {{ money | currency: 'EUR' : true }}</h2> -->
+
+              <!-- <h2> {{ date | date: 'fullDate' }}</h2>
+              <h2> {{ date | date: 'shortDate' }}</h2>
+              <h2> {{ date | date: 'shortTime' }}</h2> -->
+
+        <!-- <h2> {{ amount | percent  }}</h2>
+
+              <pre> <h2> {{ object | json }}</h2> </pre> -->
+
+              <!-- <h2> {{ items | custom : 2 }}</h2> -->
+
+              <!-- <input class="form-control" [(ngModel)]='filter'>
+              <ul class="list-group">
+                  <li class="list-group-item" 
+                      *ngFor='let car of cars | customFilter : filter : "name" ; let ind = index;' 
+                      >
+                      <b>{{ind +1}}</b>
+                    {{car.name}} 
+                    {{car.desc}}
+                  </li>
+                </ul>
+              <button class="btn btn-primary" (click)='addCar()'>Добавить машину</button> -->
+              
+              <!-- using pipe -->
+
+
+
+              <!-- <app-practice-with-services>
+                
+              </app-practice-with-services> -->
+
+              <!-- <app-practice-with-forms>
+
+              </app-practice-with-forms> -->
+
+
+              <!-- <app-practice-http>
+
+              </app-practice-http> -->
+
+
+
+              <app-practice-routing>
+
+              </app-practice-routing>
     </div>
   </div>
 </div>

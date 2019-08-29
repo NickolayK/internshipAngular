@@ -1,0 +1,33 @@
+{
+  "title":  {    
+      "value": "менеджер машин" 
+     }
+  ,
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "cars": [
+    {
+      "name": "Bmw",
+      "color": "green",
+      "id": 1
+    },
+    {
+      "name": "Mazda",
+      "color": "brown",
+      "id": 2
+    },
+    {
+      "name": "",
+      "color": "pink",
+      "id": 3
+    }
+  ]
+}
