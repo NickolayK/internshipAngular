@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of , from} from 'rxjs';
+import { delay } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +21,11 @@ export class CarService {
 
   hideCar(){
     this.isCarVisible = false;
+  }
+
+  getCarName(): Observable<string>{
+    return of('Mazda').pipe(
+        delay(2000)
+    )
   }
 }

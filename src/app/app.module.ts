@@ -8,13 +8,16 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarComponent } from './car/car.component';
-
+import { PowPipe } from './pow/pow.pipe'
+import { ColorDerective } from './color/color.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponent,
+    PowPipe,
+    ColorDerective
 
 
   ],
