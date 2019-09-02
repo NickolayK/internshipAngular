@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarComponent } from './car/car.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CarComponent,
 
 
   ],
