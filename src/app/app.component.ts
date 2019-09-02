@@ -1,60 +1,87 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs'
+
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { divTrigger, changeWithTriger } from './app.animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations:[
+    trigger('clickedDiv', [
+      state('start', style({
+        backgroundColor: 'blue',
+        width :'150px',
+        height : '150px'
+      })),
+      state('end', style({
+        backgroundColor: 'yellow',
+        width :'250px',
+        height : '250px'
+      })),
+
+      state('active', style({
+        backgroundColor: 'green',
+        width :'170px',
+        height : '170px'
+      })),
+      transition('start <=> end', [
+        animate(3000)
+      ]),
+
+      transition('start => active', [
+        animate(400)
+      ]) ,  
+      transition('active => end', [
+        animate(2600)
+      ])  
+    ]),
+    trigger('multi' , [
+      state( 'start' , style({
+        width: '150px',
+        height: '150px',
+        border: '5px solid black'
+      })),
+      state('end' , style({
+        width: '170px',
+        height: '170px',
+        background: 'blue'
+      })),
+      transition('start <=> end' , [
+        style({
+          background :'red'
+        }),
+        animate(1500 ,style({
+          background : 'yellow'
+        })),
+        animate(1000 , style({
+          width : '200px',
+          height : '200px'
+        })),
+        animate(1000)
+      ])
+    ]),
+    divTrigger,
+  changeWithTriger]
 })
 export class AppComponent {
 
+  clickedDivState = 'start';
+  multi = 'start';
+  isVisible = false;
+  triggerAnimation(){
 
-  headerText = 'создание своей директивы'
-
-  items = [ 1, 2 ,3 , 4 ,5 ];
-  current = 1;
- 
-  onClick(item:number){
-    this.current = item;
+      this.clickedDivState= 'end'
+    
+    setTimeout(() => {
+      this.clickedDivState = 'start'
+    }, 3000);
   }
-
-  cars = [
-    {
-      name: 'Mazda',
-      desc : 'WFM 1'
-    },
-    {
-      name: 'BmW',
-      desc : 'WFM 2'
-    },
-    {
-      name: 'Subaru',
-      desc : 'WFM 3'
-    },
-    {
-      name: 'Lada',
-      desc : 'WFM 4'
-    }   
-
-  ]
-  filter:string;
-//variable for pipe's lessons
-
-name ='WebForMyself';
-pi = Math.PI;
-money = 350 ;
-date = new Date();
-amount = 0.45;
-object = {
-  foo : 'bar',
-  baz: 'qux',
-  nested: {
-      xyz : 3,
-      numbers : [1 ,2 ,3]
+  onStart(event: AnimationEvent){
+    console.log(event)
   }
-}
-addCar(){
-  this.cars.push({name: 'New car', desc : 'Fww'});
-}
+  onEnd(event: AnimationEvent){
+    console.log(event)
+  }
 
 }
