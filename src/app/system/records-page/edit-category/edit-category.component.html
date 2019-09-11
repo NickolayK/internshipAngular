@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-header bordered">
+        <div class="header-block">
+            <h3 class="title">Изменить категорию</h3>
+        </div>
+    </div>
+    <div class="card-block">
+         <div class="alert alert-{{message.type}}" @myInsertRemoveTrigger
+            *ngIf="message.text">
+                {{ message.text }}
+        </div>
+        <form #form='ngForm' (ngSubmit)="onSubmit(form)">
+            <div class="form-group">
+                <label class="control-label" for="e-select-category">Выберите категорию для редактирования</label>
+                <select 
+                    id="e-select-category" 
+                    class="form-control"
+                    [(ngModel)]="currentCategoryId"
+                    (change)="onCategoryChange()"
+                    [ngModelOptions]="{standalone: true}"
+
+                >
+
+                    <option 
+                    *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                </select>
+            </div>
+            
+            <div 
+                class="form-group"
+                [ngClass]="{'has-error':name.invalid && name.touched}"
+            >
+                <label class="control-label" for="e-category-name">Введите название</label>
+                <input 
+                    type="text" 
+                    id="e-category-name" 
+                    name="name" 
+                    class="form-control" 
+                    #name="ngModel"
+                    [ngModel] ="currentCategory.name"
+                    required
+                >
+
+                <span *ngIf="name.invalid && name.touched"
+                    class="form-help-text">Название категории не может быть пустым.</span>
+            </div>
+            <div 
+                class="form-group"
+                [ngClass]="{'has-error':capacity.invalid && capacity.touched}"
+            >
+                <label class="control-label" for="e-category-value">Введите лимит</label>
+                <input 
+                    type="number" 
+                   
+                    id="e-category-value" 
+                    name="capacity" 
+                    class="form-control"
+                    #capacity='ngModel'
+                    [ngModel] ="currentCategory.capacity"
+                    required
+                    min="1"
+                >
+
+                <span class="form-help-text"
+                      *ngIf="capacity.invalid && capacity.touched"
+                      > Поле не может быть пустым</span>
+            </div>
+            <button  [disabled]='form.invalid'
+                type="submit" 
+                class="btn btn-primary"
+                >Редактировать</button>
+        </form>
+    </div>
+</div>

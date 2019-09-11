@@ -29,6 +29,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./src/assets/vendor.css",
+              "./src/assets/theme.css",
               "src/styles.scss"
          
             ],
