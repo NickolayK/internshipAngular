@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
-import { SystemModule } from './system/system.module';
+import { AuthGuard } from './shared/services/auth.guard';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -21,10 +23,9 @@ import { SystemModule } from './system/system.module';
     HttpClientModule,
     BrowserAnimationsModule,
     AuthModule,
-    SystemModule
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
