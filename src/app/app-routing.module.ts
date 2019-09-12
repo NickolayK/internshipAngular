@@ -13,7 +13,7 @@ const routes: Routes = [
 {
   path: 'system' ,loadChildren : './system/system.module#SystemModule'
 },
-{ path: '**'  ,component : NotFoundComponent }
+// { path: '**'  ,component : NotFoundComponent }
 
 
 
